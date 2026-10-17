@@ -1,1 +1,50 @@
-<h1>Hello World Wide Web!</h1>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Untitled</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
+
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <script>
+let x=1;
+let y=1;
+let c = [ '#9c3f8a', '#ffcc8a'];
+
+function setup () {
+createCanvas(500,500);
+  frameRate(5);
+}
+
+function draw () {
+background(220);
+   let currentColor = c[frameCount % c.length]
+  fill(currentColor)
+  stroke(random(255),0,random(255));
+  triangle(x+50, 350, x+150, 200, x+250, 350);
+  x+=5;
+  if (x>width)
+    {x=0;
+    }
+  
+  fill(currentColor)
+  stroke(random(255),0,random(255));
+  square(20, y, 100);
+  y+=5;
+  if (y>width)
+    {y=0;
+    }
+  
+  noStroke();
+  fill('black');
+  textSize(32);
+  text('frame:' + frameCount, 10, 30);
+  text('current FPS:' + frameRate(), 10,60);
+}
+</script>
+  </body>
+</html>
